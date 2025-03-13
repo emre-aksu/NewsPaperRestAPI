@@ -1,0 +1,26 @@
+﻿using InfrastructorLayer.Model;
+using Microsoft.AspNetCore.Http;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ModelLayer.Dtos.SpecialDtos
+{
+    public class SpecialPostDto: InterfaceDataTransferObject
+    {
+        public string PageName { get; set; } //Sayfa Adı
+        public string Title { get; set; } //Başlık 
+        public string Content { get; set; } //İçerik
+        public string CoverImage { get; set; } //Kapak Resmi
+        public IFormFile Picture { get; set; } //Resim
+        public string SeoTitle { get; set; } //Seo Başlık
+        public string SeoDescription { get; set; } //Seo Açıklama
+        public string SeoKeywords { get; set; } //Seo Anahtar Kelimeler
+        public DateTime CreatedDate { get; set; } //Oluşturulma Tarihi
+        public DateTime UpdateDate { get; set; } //Güncellenme Tarihi
+        public int AuthorId { get; set; } //Yazar Id
+        public int CategoryId { get; set; } //Kategori Id
+    }
+}

@@ -5,7 +5,7 @@ namespace ModelLayer.Entities
     public class Special: BaseRecord<int>
     {
         public string PageName { get; set; }
-        public string Slug { get; set; }
+       
         public string Description { get; set; }
         public string SeoTitle { get; set; }
         public string SeoDescription { get; set; }

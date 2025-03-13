@@ -1,14 +1,17 @@
 ﻿using InfrastructorLayer.Model;
 using Microsoft.AspNetCore.Http;
 
-namespace ModelLayer.Entities
+namespace ModelLayer.Dtos.AgendaDtos
 {
-    public class Agenda:BaseRecord<int>
+    public class AgendaPutDto:InterfaceDataTransferObject
     {
+        public int Id { get; set; }
         public string Description { get; set; }
         public string Title { get; set; }
         public string Summary { get; set; }
         public string Content { get; set; }
+        public DateTime PublishedDate { get; set; }
+        public DateTime UpdatedDate { get; set; }
         public int ViewCount { get; set; }
         public int LikeCount { get; set; }
         public string CoverImage { get; set; }
@@ -16,6 +19,5 @@ namespace ModelLayer.Entities
         public IFormFile Picture { get; set; }
         public int CategoryId { get; set; }
         public int AuthorId { get; set; }
-
     }
 }
