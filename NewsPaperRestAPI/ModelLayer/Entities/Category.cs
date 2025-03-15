@@ -1,6 +1,9 @@
-﻿namespace ModelLayer.Entities
+﻿using InfrastructorLayer.Model;
+
+namespace ModelLayer.Entities
 {
-   public  class Category
+   public  class Category:BaseRecord<int>
+    
     {
        
             public Category()
@@ -13,7 +16,7 @@
                 Sports = new HashSet<Sport>();
             }
 
-            public int Id { get; set; }
+          
             public string Name { get; set; }
             public string Description { get; set; }
             public byte[] Picture { get; set; }
