@@ -1,7 +1,6 @@
 using BusinessLayer.Extensions;
 using FluentValidation;
 using Microsoft.OpenApi.Models;
-using ModelLayer.Dtos.AgendaDtos;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,14 +26,18 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddMemoryCache();
 
 // FluentValidation servisini ekleme
-builder.Services.AddValidatorsFromAssemblyContaining<AgendaPostDto>();
+builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly);
+
 
 // AutoMapper ekleme
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+// Ýþ mantýðý servislerini ekleme (Business katmaný servisleri)
 builder.Services.AddBusinessServices();
 
 var app = builder.Build();
+// Configure the HTTP request pipeline.
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -51,5 +54,6 @@ app.UseSerilogRequestLogging();
 
 app.UseAuthorization();
 app.MapControllers();
+
 
 app.Run();

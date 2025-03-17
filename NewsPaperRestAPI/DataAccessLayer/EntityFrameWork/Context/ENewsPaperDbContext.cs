@@ -18,5 +18,11 @@ namespace DataAccessLayer.EntityFrameWork.Context
         public DbSet<Home> Homes { get; set; }
         public DbSet<Special> Specials { get; set; }
         public DbSet<Sport> Sports { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Agenda>()
+                .Ignore(a => a.Picture); // Picture alanını EF'e dahil etme
+        }
     }
 }

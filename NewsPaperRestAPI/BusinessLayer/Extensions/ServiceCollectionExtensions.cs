@@ -1,9 +1,19 @@
 ﻿using BusinessLayer.Contracts;
 using BusinessLayer.Implementation;
 using BusinessLayer.Mapping.AutoMapper.Profiles;
+using BusinessLayer.ValidationRules.FluentValidation;
 using DataAccessLayer.Contracts.IRepositories;
 using DataAccessLayer.EntityFrameWork.Repositories;
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
+using ModelLayer.Dtos.AgendaDtos;
+using ModelLayer.Dtos.AnnouncementDtos;
+using ModelLayer.Dtos.AuthorDtos;
+using ModelLayer.Dtos.CategoryDtos;
+using ModelLayer.Dtos.EconomyDtos;
+using ModelLayer.Dtos.HomeDtos;
+using ModelLayer.Dtos.SpecialDtos;
+using ModelLayer.Dtos.SportDtos;
 
 namespace BusinessLayer.Extensions
 {
@@ -42,6 +52,34 @@ namespace BusinessLayer.Extensions
             services.AddScoped<IHomeRepository, HomeRepository>();
             services.AddScoped<ISpecialRepository, SpecialRepository>();
             services.AddScoped<ISportRepository, SportRepository>();
+
+            //-----------------FluentValidation Registrations----------
+            //-----------------FluentValidation Registrations----------
+            services.AddScoped<IValidator<AgendaPostDto>, AgendaPostDtoValidator>();
+            services.AddScoped<IValidator<AgendaPutDto>, AgendaPutDtoValidator>();
+
+            services.AddScoped<IValidator<AnnouncementPostDto>, AnnouncementPostDtoValidator>();
+            services.AddScoped<IValidator<AnnouncementPutDto>, AnnouncementPutDtoValidator>();
+
+            services.AddScoped<IValidator<AuthorPostDto>, AuthorPostDtoValidator>();
+            services.AddScoped<IValidator<AuthorPutDto>, AuthorPutDtoValidator>();
+
+            services.AddScoped<IValidator<CategoryPostDto>, CategoryPostDtoValidator>();
+            services.AddScoped<IValidator<CategoryPutDto>, CategoryPutDtoValidator>();
+
+            services.AddScoped<IValidator<EconomyPostDto>, EconomyPostDtoValidator>();
+            services.AddScoped<IValidator<EconomyPutDto>, EconomyPutDtoValidator>();
+
+            services.AddScoped<IValidator<HomePostDto>, HomePostDtoValidator>();
+            services.AddScoped<IValidator<HomePutDto>, HomePutDtoValidator>();
+
+            services.AddScoped<IValidator<SpecialPostDto>, SpecialPostDtoValidator>();
+            services.AddScoped<IValidator<SpecialPutDto>, SpecialPutDtoValidator>();
+
+            services.AddScoped<IValidator<SportPostDto>, SportPostDtoValidator>();
+            services.AddScoped<IValidator<SportPutDto>, SportPutDtoValidator>();
+
+
         }
     }
 }

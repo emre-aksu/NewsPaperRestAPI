@@ -57,7 +57,7 @@ namespace BusinessLayer.Implementation
             return dto;
         }
 
-        public async Task<List<AuthorGetDto>> GetAllCategories(params string[] includeList)
+        public async Task<List<AuthorGetDto>> GetAllAuthor(params string[] includeList)
         {
             const string cacheKey = "All_Authors";
             if (_cache.TryGetValue(cacheKey, out List<AuthorGetDto> cachedAuthors))

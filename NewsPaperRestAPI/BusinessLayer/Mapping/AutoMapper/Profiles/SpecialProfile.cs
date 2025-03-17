@@ -9,7 +9,7 @@ namespace BusinessLayer.Mapping.AutoMapper.Profiles
         public SpecialProfile()
         {
             CreateMap<Special,SpecialGetDto>();
-            createMap<SpecialPostDto, Special>();
+            CreateMap<SpecialPostDto, Special>();
             CreateMap<SpecialPutDto, Special>();
         }
     }
