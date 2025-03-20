@@ -1,4 +1,6 @@
 ﻿using BusinessLayer.Contracts;
+using BusinessLayer.Implementation;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using ModelLayer.Dtos.AgendaDtos;
@@ -10,11 +12,11 @@ namespace PresentationsWebAPI.Controllers
     public class AgendaControllers : ControllerBase
     {
         private readonly IAgendaManager _agendaManager;
-        private readonly ILogger<AgendaController> _logger;
+        private readonly ILogger<AgendaControllers> _logger;
         private readonly IMemoryCache _memoryCache;
         private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public AgendaControllers(IAgendaManager agendaManager, ILogger<AgendaController> logger, IMemoryCache memoryCache, IWebHostEnvironment webHostEnvironment)
+        public AgendaControllers(IAgendaManager agendaManager, ILogger<AgendaControllers> logger, IMemoryCache memoryCache, IWebHostEnvironment webHostEnvironment)
         {
             _agendaManager = agendaManager;
             _logger = logger;

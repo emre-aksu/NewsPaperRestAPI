@@ -16,6 +16,8 @@ namespace ModelLayer.Entities
         public IFormFile Picture { get; set; }
         public int CategoryId { get; set; }
         public int AuthorId { get; set; }
+        public List<Author> Authors { get; set; }
+        public Category Categories { get; set; }
 
     }
 }

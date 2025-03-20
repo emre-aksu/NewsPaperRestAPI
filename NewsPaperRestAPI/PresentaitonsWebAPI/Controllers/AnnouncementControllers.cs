@@ -2,21 +2,22 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using ModelLayer.Dtos.AgendaDtos;
+using ModelLayer.Dtos.AnnouncementDtos;
 
 namespace PresentationsWebAPI.Controllers
 {
-    [Route("api/agendas")]
+    [Route("api/announcements")]
     [ApiController]
-    public class AgendaController : ControllerBase
+    public class AnnouncementController : ControllerBase
     {
-        private readonly IAgendaManager _agendaManager;
-        private readonly ILogger<AgendaController> _logger;
+        private readonly IAnnouncementManager _announcementManager;
+        private readonly ILogger<AnnouncementController> _logger;
         private readonly IMemoryCache _memoryCache;
         private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public AgendaController(IAgendaManager agendaManager, ILogger<AgendaController> logger, IMemoryCache memoryCache, IWebHostEnvironment webHostEnvironment)
+        public AnnouncementController(IAnnouncementManager announcementManager, ILogger<AnnouncementController> logger, IMemoryCache memoryCache, IWebHostEnvironment webHostEnvironment)
         {
-            _agendaManager = agendaManager;
+            _announcementManager = announcementManager;
             _logger = logger;
             _memoryCache = memoryCache;
             _webHostEnvironment = webHostEnvironment;
@@ -26,7 +27,7 @@ namespace PresentationsWebAPI.Controllers
         public async Task<IActionResult> GetById(int id)
         {
             _logger.LogInformation("Agenda getiriliyor: Id = {Id}", id);
-            var agendaDto = await _agendaManager.GetById(id, "Authors");
+            var agendaDto = await _announcementManager.GetById(id, "Authors");
             if (agendaDto == null)
             {
                 _logger.LogWarning("Agenda bulunamadı: Id = {Id}", id);
@@ -39,7 +40,7 @@ namespace PresentationsWebAPI.Controllers
         public async Task<IActionResult> GetAllAgenda()
         {
             _logger.LogInformation("Tüm agendalar getiriliyor.");
-            var agendas = await _agendaManager.GetAllAgenda("Authors");
+            var agendas = await _announcementManager.GetAllAnnouncement("Authors");
             if (agendas == null || agendas.Count == 0)
             {
                 _logger.LogWarning("Hiç agenda bulunamadı.");
@@ -49,7 +50,7 @@ namespace PresentationsWebAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddAgenda([FromForm] AgendaPostDto dto)
+        public async Task<IActionResult> AddAgenda([FromForm] AnnouncementPostDto dto)
         {
             _logger.LogInformation("Yeni bir agenda ekleniyor: {@Agenda}", dto);
 
@@ -87,14 +88,14 @@ namespace PresentationsWebAPI.Controllers
                 }
             }
 
-            await _agendaManager.AddAgenda(dto);
+            await _announcementManager.AddAnnouncement(dto);
             _memoryCache.Remove("AgendaList");
 
             return StatusCode(StatusCodes.Status201Created, new { message = "Agenda başarıyla eklendi!" });
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateAgenda(int id, [FromForm] AgendaPutDto dto)
+        public async Task<IActionResult> UpdateAgenda(int id, [FromForm] AnnouncementPutDto dto)
         {
             _logger.LogInformation("Agenda güncelleniyor: Id = {Id}, Yeni Değerler = {@Dto}", id, dto);
 
@@ -132,8 +133,8 @@ namespace PresentationsWebAPI.Controllers
                 }
             }
 
-            await _agendaManager.UpdateAgenda(dto);
-            _memoryCache.Remove("AgendaList");
+            await _announcementManager.UpdateAnnouncement(dto);
+            _memoryCache.Remove("AnnouncementList");
             return Ok(new { message = "Agenda başarıyla güncellendi!" });
         }
 
@@ -141,7 +142,7 @@ namespace PresentationsWebAPI.Controllers
         public async Task<IActionResult> DeleteAgenda(int id)
         {
             _logger.LogWarning("Agenda siliniyor: Id = {Id}", id);
-            await _agendaManager.DeleteAgenda(id);
+            await _announcementManager.DeleteAnnouncement(id);
             _memoryCache.Remove("AgendaList");
             return Ok(new { message = "Agenda başarıyla silindi!" });
         }

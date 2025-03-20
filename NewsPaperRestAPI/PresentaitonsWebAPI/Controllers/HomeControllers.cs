@@ -13,6 +13,7 @@ namespace PresentationsWebAPI.Controllers
         private readonly IHomeManager _homeManager;
         private readonly ILogger<HomeController> _logger;
         private readonly IMemoryCache _memoryCache;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
         public HomeController(IHomeManager homeManager, ILogger<HomeController> logger, IMemoryCache memoryCache)
         {
