@@ -1,7 +1,5 @@
 ﻿using FluentValidation;
-using Microsoft.AspNetCore.Http;
 using ModelLayer.Dtos.AnnouncementDtos;
-using System;
 
 namespace BusinessLayer.ValidationRules.FluentValidation
 {
@@ -17,13 +15,13 @@ namespace BusinessLayer.ValidationRules.FluentValidation
                 .NotEmpty().WithMessage("Kurum adı boş olamaz.")
                 .MaximumLength(100).WithMessage("Kurum adı en fazla 100 karakter olabilir.");
 
-            RuleFor(x => x.PublishDate)
+            RuleFor(x => x.PublicationDate)
                 .NotEmpty().WithMessage("Yayın tarihi boş olamaz.")
                 .LessThanOrEqualTo(DateTime.Now).WithMessage("Yayın tarihi bugünden büyük olamaz.");
 
             RuleFor(x => x.DeadlineDate)
                 .NotEmpty().WithMessage("Son başvuru tarihi boş olamaz.")
-                .GreaterThan(x => x.PublishDate).WithMessage("Son başvuru tarihi yayın tarihinden sonra olmalıdır.");
+                .GreaterThan(x => x.PublicationDate).WithMessage("Son başvuru tarihi yayın tarihinden sonra olmalıdır.");
 
             RuleFor(x => x.Type)
                 .NotEmpty().WithMessage("Tür boş olamaz.")
@@ -48,7 +46,7 @@ namespace BusinessLayer.ValidationRules.FluentValidation
             RuleFor(x => x.CategoryId)
                 .GreaterThan(0).WithMessage("Geçerli bir kategori seçmelisiniz.");
 
-            RuleFor(x => x.AthorId)
+            RuleFor(x => x.AuthorId)
                 .GreaterThan(0).WithMessage("Geçerli bir yazar seçmelisiniz.");
         }
     }

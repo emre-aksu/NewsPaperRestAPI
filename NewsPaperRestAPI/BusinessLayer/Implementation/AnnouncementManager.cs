@@ -38,6 +38,7 @@ namespace BusinessLayer.Implementation
 
         public async Task AddAnnouncement(AnnouncementPostDto dto)
         {
+
             _logger.LogInformation("AddAnnouncement started.");
 
             var validationResult = _postValidator.Validate(dto);
@@ -45,7 +46,7 @@ namespace BusinessLayer.Implementation
             {
                 throw new ValidationException(validationResult.Errors);
             }
-
+        
             var entity = _mapper.Map<Announcement>(dto);
             await _announcementRepo.InsertAsync(entity);
 

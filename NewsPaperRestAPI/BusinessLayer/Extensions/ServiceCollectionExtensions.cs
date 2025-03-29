@@ -21,6 +21,7 @@ namespace BusinessLayer.Extensions
     {
         public static void AddBusinessServices(this IServiceCollection services)
         {
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             //------------------Profile--------------------------
 
             services.AddAutoMapper(typeof(AgendaProfile));
@@ -42,6 +43,8 @@ namespace BusinessLayer.Extensions
             services.AddScoped<ISpecialManager, SpecialManager>();
             services.AddScoped<ISportManager, SportManager>();
 
+        
+
 
             //-----------------Repository Registrations----------
             services.AddScoped<IAgendaRepository, AgendaRepository>();
@@ -53,7 +56,7 @@ namespace BusinessLayer.Extensions
             services.AddScoped<ISpecialRepository, SpecialRepository>();
             services.AddScoped<ISportRepository, SportRepository>();
 
-            //-----------------FluentValidation Registrations----------
+       
             //-----------------FluentValidation Registrations----------
             services.AddScoped<IValidator<AgendaPostDto>, AgendaPostDtoValidator>();
             services.AddScoped<IValidator<AgendaPutDto>, AgendaPutDtoValidator>();
