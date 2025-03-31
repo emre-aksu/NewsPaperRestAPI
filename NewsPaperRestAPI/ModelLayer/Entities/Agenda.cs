@@ -18,6 +18,12 @@ namespace ModelLayer.Entities
         public int AuthorId { get; set; }
         public List<Author> Authors { get; set; }
         public Category Categories { get; set; }
+       
+        public DateTime? CreatedDate { get; set; } // İlan oluşturulma tarihi
+        public DateTime? UpdatedDate { get; set; } // İlan güncellenme tarihi
+       
+        public DateTime? PublishedDate { get; set; }
+        
 
     }
 }
