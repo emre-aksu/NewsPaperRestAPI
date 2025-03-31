@@ -17,7 +17,7 @@ namespace BusinessLayer.ValidationRules.FluentValidation
 
             RuleFor(x => x.Biography)
                 .NotEmpty().WithMessage("Biyografi boş olamaz.")
-                .MinimumLength(50).WithMessage("Biyografi en az 50 karakter olmalıdır.");
+                .MinimumLength(10).WithMessage("Biyografi en az 50 karakter olmalıdır.");
 
             RuleFor(x => x.CoverImage)
                 .NotEmpty().WithMessage("Kapak resmi boş olamaz.");

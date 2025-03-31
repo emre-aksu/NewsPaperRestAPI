@@ -27,3 +27,9 @@ namespace ModelLayer.Dtos.AnnouncementDtos
         public int AuthorId { get; set; }
     }
 }
+
+
+
+
+
+

@@ -18,6 +18,8 @@ namespace ModelLayer.Entities
         public int AuthorId { get; set; }
         public Category Categories { get; set; }
 
+       
+
 
     }
 }
