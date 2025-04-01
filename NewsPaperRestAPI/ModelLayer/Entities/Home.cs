@@ -20,5 +20,6 @@ namespace ModelLayer.Entities
         public bool Status { get; set; } // İlan durumu
         public DateTime? PublishedDate { get; set; }
         public int? ViewCount { get; set; }
+        public string Content { get;set; }
     }
 }

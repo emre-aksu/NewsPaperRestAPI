@@ -45,13 +45,13 @@ namespace BusinessLayer.ValidationRules.FluentValidation
             RuleFor(x => x.StockIndex)
                 .NotEmpty().WithMessage("Hisse senetleri boş olamaz.");
 
-            RuleFor(x => x.GoldPrice)
+            RuleFor(x => x.GoldPrices)
                 .GreaterThanOrEqualTo(0).WithMessage("Altın fiyatları negatif olamaz.");
 
             RuleFor(x => x.CategoryId)
                 .GreaterThan(0).WithMessage("Geçerli bir kategori seçilmelidir.");
 
-            RuleFor(x => x.AthorId)
+            RuleFor(x => x.AuthorId)
                 .GreaterThan(0).WithMessage("Geçerli bir yazar seçilmelidir.");
         }
     }

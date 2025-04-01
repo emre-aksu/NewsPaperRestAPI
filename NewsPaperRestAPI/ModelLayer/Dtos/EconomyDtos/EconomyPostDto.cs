@@ -16,8 +16,13 @@ namespace ModelLayer.Dtos.EconomyDtos
         public string Title { get; set; } // Başlık
         public decimal ExchangeRates { get; set; } // Döviz Kurları
         public string StockIndex { get; set; } // Hisse Senetleri
-        public decimal GoldPrice { get; set; } // Altın Fiyatları
+        public decimal GoldPrices { get; set; } // Altın Fiyatları
         public int CategoryId { get; set; } // Kategori Id
-        public int AthorId { get; set; } // Yazar Id
+        public int AuthorId { get; set; } // Yazar Id
+        public DateTime? CreatedDate { get; set; } // İlan oluşturulma tarihi
+        public DateTime? UpdatedDate { get; set; } // İlan güncellenme tarihi
+        public bool Status { get; set; } // İlan durumu
+
+        public int? ViewCount { get; set; }
     }
 }

@@ -15,11 +15,12 @@ namespace PresentationsWebAPI.Controllers
         private readonly IMemoryCache _memoryCache;
         private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public HomeController(IHomeManager homeManager, ILogger<HomeController> logger, IMemoryCache memoryCache)
+        public HomeController(IHomeManager homeManager, ILogger<HomeController> logger, IMemoryCache memoryCache, IWebHostEnvironment webHostEnvironment)
         {
             _homeManager = homeManager;
             _logger = logger;
             _memoryCache = memoryCache;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         [HttpGet("{id}")]

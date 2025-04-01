@@ -11,8 +11,8 @@ public class EconomyPutDtoValidator : AbstractValidator<EconomyPutDto>
         RuleFor(x => x.Content).NotEmpty().WithMessage("İçerik boş olamaz.");
         RuleFor(x => x.PublishedDate).NotEmpty().WithMessage("Yayınlanma tarihi boş olamaz.");
         RuleFor(x => x.ExchangeRates).GreaterThan(0).WithMessage("Döviz kurları 0'dan büyük olmalıdır.");
-        RuleFor(x => x.GoldPrice).GreaterThan(0).WithMessage("Altın fiyatı 0'dan büyük olmalıdır.");
+        RuleFor(x => x.GoldPrices).GreaterThan(0).WithMessage("Altın fiyatı 0'dan büyük olmalıdır.");
         RuleFor(x => x.CategoryId).GreaterThan(0).WithMessage("Kategori Id geçerli olmalıdır.");
-        RuleFor(x => x.AthorId).GreaterThan(0).WithMessage("Yazar Id geçerli olmalıdır.");
+        RuleFor(x => x.AuthorId).GreaterThan(0).WithMessage("Yazar Id geçerli olmalıdır.");
     }
 }

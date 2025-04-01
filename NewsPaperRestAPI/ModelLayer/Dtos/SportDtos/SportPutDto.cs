@@ -16,6 +16,10 @@ namespace ModelLayer.Dtos.SportDtos
         public bool Status { get; set; } // Durum
         public int CategoryId { get; set; } // Kategori Id
         public int AutherId { get; set; } // Yazar Id
+        public DateTime? CreatedDate { get; set; } // İlan oluşturulma tarihi
+        public DateTime? UpdatedDate { get; set; } // İlan güncellenme tarihi
+        public DateTime? PublishedDate { get; set; }
+        public int? ViewCount { get; set; }
 
     }
 }

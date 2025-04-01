@@ -17,5 +17,9 @@ namespace ModelLayer.Dtos.SpecialDtos
         public DateTime UpdateDate { get; set; } //Güncellenme Tarihi
         public int AuthorId { get; set; } //Yazar Id
         public int CategoryId { get; set; } //Kategori Id
+        public DateTime? UpdatedDate { get; set; } // İlan güncellenme tarihi
+        public bool Status { get; set; } // İlan durumu
+        public DateTime? PublishedDate { get; set; }
+        public int? ViewCount { get; set; }
     }
 }

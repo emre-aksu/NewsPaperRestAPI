@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace ModelLayer.Dtos.HomeDtos
 {
-    public class HomePutDto:InterfaceDataTransferObject
+    public class HomePutDto : InterfaceDataTransferObject
     {
         public int Id { get; set; } //Id    
         public string Title { get; set; }   //Başlık
@@ -20,5 +20,6 @@ namespace ModelLayer.Dtos.HomeDtos
         public IFormFile Picture { get; set; } //Resim
         public int CategoryId { get; set; } //Kategori Id
         public int AuthorId { get; set; } //Yazar Id
+        public DateTime? CreatedDate { get; set; } // İlan oluşturulma tarihi
     }
 }

@@ -8,7 +8,8 @@ namespace ModelLayer.Entities
         public string Description { get; set; }
         public decimal ExchangeRates { get; set; }
         public string StockIndex { get; set; }
-        public DateTime GoldPrices { get; set; }
+        public decimal GoldPrices { get; set; }
+        public string Content { get; set; }
         public int AuthorId { get; set; }
         public Author Author { get; set; }
         public int CategoryId { get; set; }
