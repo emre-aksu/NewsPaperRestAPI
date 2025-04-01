@@ -32,8 +32,8 @@ namespace BusinessLayer.ValidationRules.FluentValidation
                 .NotEmpty().WithMessage("SEO başlık boş olamaz.")
                 .MaximumLength(100).WithMessage("SEO başlık en fazla 100 karakter olabilir.");
 
-            RuleFor(x => x.SeoDescription)
-                .NotEmpty().WithMessage("SEO açıklama boş olamaz.")
+            RuleFor(x => x.Description)
+                .NotEmpty().WithMessage("Açıklama boş olamaz.")
                 .MaximumLength(300).WithMessage("SEO açıklama en fazla 300 karakter olabilir.");
 
             RuleFor(x => x.SeoKeywords)

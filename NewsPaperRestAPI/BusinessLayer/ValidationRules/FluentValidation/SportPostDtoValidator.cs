@@ -40,7 +40,7 @@ namespace BusinessLayer.ValidationRules.FluentValidation
             RuleFor(x => x.CategoryId)
                 .GreaterThan(0).WithMessage("Geçerli bir kategori seçilmelidir.");
 
-            RuleFor(x => x.AutherId)
+            RuleFor(x => x.AuthorId)
                 .GreaterThan(0).WithMessage("Geçerli bir yazar seçilmelidir.");
         }
     }

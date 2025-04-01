@@ -12,7 +12,7 @@ namespace ModelLayer.Dtos.SpecialDtos
         public string CoverImage { get; set; } //Kapak Resmi
         public IFormFile Picture { get; set; } //Resim
         public string SeoTitle { get; set; } //Seo Başlık
-        public string SeoDescription { get; set; } //Seo Açıklama
+        public string Description { get; set; } //Seo Açıklama 
         public string SeoKeywords { get; set; } //Seo Anahtar Kelimeler
         public DateTime CreatedDate { get; set; } //Oluşturulma Tarihi
         public DateTime UpdateDate { get; set; } //Güncellenme Tarihi

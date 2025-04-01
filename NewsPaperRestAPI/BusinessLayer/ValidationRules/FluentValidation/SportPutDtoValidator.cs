@@ -12,6 +12,6 @@ public class SportPutDtoValidator : AbstractValidator<SportPutDto>
         RuleFor(x => x.Type).NotEmpty().WithMessage("Tür boş olamaz.");
         RuleFor(x => x.SeoTitle).NotEmpty().WithMessage("Seo başlık boş olamaz.");
         RuleFor(x => x.CategoryId).GreaterThan(0).WithMessage("Kategori Id geçerli olmalıdır.");
-        RuleFor(x => x.AutherId).GreaterThan(0).WithMessage("Yazar Id geçerli olmalıdır.");
+        RuleFor(x => x.AuthorId).GreaterThan(0).WithMessage("Yazar Id geçerli olmalıdır.");
     }
 }
